@@ -64,7 +64,6 @@ public class Soal2 {
         boolean pesan_lagi = true;
         
         while(pesan_lagi){
-            System.out.println(menu.length);
             System.out.println("Daftar Menu");
             System.out.println("--------------");
             for (int i = 0; i < menu.length; i++){
@@ -89,7 +88,7 @@ public class Soal2 {
             int jumlah_pesanan_permenu = input.nextInt();
             
             daftar_penjualan[jumlah_pesanan] = new penjualan(menu[no_menu-1], jumlah_pesanan_permenu);
-            menu[no_menu-1].qty = menu[no_menu-1].qty - jumlah_pesanan_permenu; 
+            daftar_penjualan[jumlah_pesanan].produk_penjualan.qty -= jumlah_pesanan_permenu; 
             jumlah_pesanan += 1;
             total_harga += menu[no_menu - 1].harga * jumlah_pesanan_permenu;
             
@@ -106,7 +105,7 @@ public class Soal2 {
                             daftar_penjualan[i].quantity,
                             daftar_penjualan[i].produk_penjualan.harga,
                             daftar_penjualan[i].hitung_total_permenu(),
-                            menu[i].qty);
+                            daftar_penjualan[i].produk_penjualan.qty);
         }
         
         System.out.println("Total harga : Rp." + total_harga);
